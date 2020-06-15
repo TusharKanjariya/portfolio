@@ -1,5 +1,7 @@
 # portfolio
 
+[Live Demo](https://tusharkanjariya.github.io/portfolio/)
+
 ## Project setup
 ```
 npm install
