@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
+    "prerender-spa-plugin": "^3.4.0",
     "vue": "^2.6.11",
     "vue2-scrollspy": "^2.3.1"
   },
