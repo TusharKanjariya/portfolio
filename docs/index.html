@@ -23,8 +23,8 @@
             </svg>
         </button>
         <!-- Menu Button -->
-        <div class="flex-1 w-60 fixed md:sticky md:top-0 h-screen bg-slate-800 text-white md:min-h-screen md:block hidden transition-all duration-200"
-            id="sidebar">
+        <div
+            class="flex-1 w-60 fixed md:sticky md:top-0 h-screen bg-slate-800 text-white md:min-h-screen md:block hidden transition-all duration-200 sidebar">
             <!-- Close Icon -->
             <div>
                 <button class="py-2 px-2 bg-slate-500 absolute right-0 md:hidden" onclick="hideSidebar()">
@@ -88,7 +88,7 @@
 
             <!-- Navigation Link Start -->
             <ul class="flex flex-col p-5 text-lg">
-                <li class="hover:text-white text-slate-400 transition">
+                <li class="hover:text-sky-500 text-slate-400 transition">
                     <a href="#home">
                         <i class="fas fa-home"></i>
                         <span class="ml-3">Home</span>
@@ -563,7 +563,7 @@
                         Here's what I have done with the past. For More Designs please visit <a class="link"
                             href="https://dribbble.com/TusharKanjariya" target="_blank">Dribbble</a>.
                     </p>
-                    <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-10">
+                    <div class="mt-4 grid md:grid-cols-3 gap-10">
                         <div class="bg-white rounded-lg max-w-sm overflow-hidden">
                             <div class="rounded-lg">
                                 <a href="https://dribbble.com/shots/10492723-Movie-Ticket-Booking-Mobile-App"
@@ -572,7 +572,9 @@
                                         alt="Movie Ticket Booking Mobile App">
                                 </a>
                                 <div class="p-6">
-                                    <h5 class="text-gray-700 text-xl font-medium mb-2">Movie Ticket Booking Mobile App
+                                    <h5 class="text-gray-700 md:text-xl text-center font-medium mb-2">Movie Ticket
+                                        Booking Mobile
+                                        App
                                     </h5>
                                 </div>
                             </div>
@@ -584,7 +586,8 @@
                                         alt="Bus Travel Booking App">
                                 </a>
                                 <div class="p-6">
-                                    <h5 class="text-gray-700 text-xl font-medium mb-2">Bus Travel Booking App
+                                    <h5 class="text-gray-700 md:text-xl text-center font-medium mb-2">Bus Travel Booking
+                                        App
                                     </h5>
                                 </div>
                             </div>
@@ -596,7 +599,8 @@
                                         alt="LinkedIn Redesign Concept">
                                 </a>
                                 <div class="p-6">
-                                    <h5 class="text-gray-700 text-xl font-medium mb-2">LinkedIn Redesign Concept
+                                    <h5 class="text-gray-700 md:text-xl text-center font-medium mb-2">LinkedIn Redesign
+                                        Concept
                                     </h5>
                                 </div>
                             </div>
@@ -609,7 +613,9 @@
                                         alt="Agency Website Template - Company Website">
                                 </a>
                                 <div class="p-6">
-                                    <h5 class="text-gray-700 text-xl font-medium mb-2">Agency Website Template - Company
+                                    <h5 class="text-gray-700 md:text-xl text-center font-medium mb-2">Agency Website
+                                        Template -
+                                        Company
                                         Website
                                     </h5>
                                 </div>
@@ -623,7 +629,8 @@
                                         alt="Team Meeting Application UI">
                                 </a>
                                 <div class="p-6">
-                                    <h5 class="text-gray-700 text-xl font-medium mb-2">Team Meeting Application UI
+                                    <h5 class="text-gray-700 md:text-xl text-center font-medium mb-2">Team Meeting
+                                        Application UI
                                     </h5>
                                 </div>
                             </div>
@@ -636,7 +643,9 @@
                                         alt="Chat Contacts UI - Dark and Light">
                                 </a>
                                 <div class="p-6">
-                                    <h5 class="text-gray-700 text-xl font-medium mb-2">Chat Contacts UI - Dark and Light
+                                    <h5 class="text-gray-700 md:text-xl text-center font-medium mb-2">Chat Contacts UI -
+                                        Dark and
+                                        Light
                                     </h5>
                                 </div>
                             </div>
@@ -672,15 +681,35 @@
         </div>
         <!-- Content Section End -->
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         function openSidebar() {
-            document.getElementById('sidebar').classList.remove('hidden');
-            document.getElementById('sidebar').classList.add('block');
+            document.querySelector('.sidebar').classList.remove('hidden');
+            document.querySelector('.sidebar').classList.add('block');
         }
         function hideSidebar() {
-            document.getElementById('sidebar').classList.add('hidden');
-            document.getElementById('sidebar').classList.remove('block');
+            document.querySelector('.sidebar').classList.add('hidden');
+            document.querySelector('.sidebar').classList.remove('block');
         }
+        var addClassOnScroll = function () {
+            var windowTop = $(window).scrollTop();
+            $('div[id]').each(function (index, elem) {
+                var offsetTop = $(elem).offset().top;
+                var outerHeight = $(this).outerHeight(true);
+
+                if (windowTop > (offsetTop - 50) && windowTop < (offsetTop + outerHeight)) {
+                    var elemId = $(elem).attr('id');
+                    $("ul li a.active-link").removeClass('active-link');
+                    $("ul li a[href='#" + elemId + "']").addClass('active-link');
+                }
+            });
+        };
+
+        $(function () {
+            $(window).on('scroll', function () {
+                addClassOnScroll();
+            });
+        });
     </script>
 </body>
 

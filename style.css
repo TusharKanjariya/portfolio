@@ -12,6 +12,10 @@
     .link {
         @apply text-sky-600 hover:text-sky-800 visited:text-purple-600
     }
+
+    .active-link {
+        @apply text-sky-500
+    }
 }
 
 .container {
