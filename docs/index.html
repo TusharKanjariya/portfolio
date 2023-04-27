@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tusharkanjariya.me/">
     <meta property="og:title" content="Tushar Kanjariya | Portfolio">
-    <meta property="og:description" content="Full Stack Developer and UI/UX Designer">
+    <meta property="og:description" content="Tushar Kanjariya is a Full Stack Developer and UI/UX Designer">
     <meta property="og:image" content="https://tusharkanjariya.me/imgs/profile.jpg">
 
     <!-- Twitter -->
@@ -152,7 +152,7 @@
                 </li>
                 <li class="mt-4 hover:text-sky-500 text-slate-400 transition">
                     <a href="#Blogs">
-                        <i class="fas fa-th"></i>
+                        <i class="fa-brands fa-medium"></i>
                         <span class="ml-3">Blogs</span>
                     </a>
                 </li>
@@ -705,9 +705,19 @@
                         <hr class="mt-3 border-sky-500 border-2">
                     </div>
                     <p class="text-lg mt-4">
-                        Read my Blogs and also Follow me on <a class="link" href="https://medium.com/@TusharKanjariya">Medium.com</a>
+                        Read my Blogs and also Follow me on <a class="link"
+                            href="https://medium.com/@TusharKanjariya">Medium.com</a>
                     </p>
-                    <div class='sk-ww-medium-publication-feed' data-embed-id='131884'></div><script src='https://widgets.sociablekit.com/medium-publication-feed/widget.js' async defer></script>
+                    <div class="mt-4 grid md:grid-cols-3 gap-10" id="medium-blogs">
+                        <!-- Blog Display Here -->
+                    </div>
+                    <div class="flex justify-center mt-10">
+                        <a target="_blank" href="https://medium.com/@TusharKanjariya"
+                            class="text-white bg-sky-500 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-md px-5 py-5 text-center mb-5">
+                            Read More on Medium</a>
+                    </div>
+                    <iframe src="https://tusharkanjariya.substack.com/embed" class="w-full" height="320"
+                        style="border:1px solid #EEE; background:#ddd;" frameborder="0" scrolling="no"></iframe>
                 </div>
             </div>
             <!-- Embed Nedium Portfolio End -->
@@ -734,35 +744,7 @@
         <!-- Content Section End -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-        function openSidebar() {
-            document.querySelector('.sidebar').classList.remove('hidden');
-            document.querySelector('.sidebar').classList.add('block');
-        }
-        function hideSidebar() {
-            document.querySelector('.sidebar').classList.add('hidden');
-            document.querySelector('.sidebar').classList.remove('block');
-        }
-        var addClassOnScroll = function () {
-            var windowTop = $(window).scrollTop();
-            $('div[id]').each(function (index, elem) {
-                var offsetTop = $(elem).offset().top;
-                var outerHeight = $(this).outerHeight(true);
-
-                if (windowTop > (offsetTop - 50) && windowTop < (offsetTop + outerHeight)) {
-                    var elemId = $(elem).attr('id');
-                    $("ul li a.active-link").removeClass('active-link');
-                    $("ul li a[href='#" + elemId + "']").addClass('active-link');
-                }
-            });
-        };
-
-        $(function () {
-            $(window).on('scroll', function () {
-                addClassOnScroll();
-            });
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
