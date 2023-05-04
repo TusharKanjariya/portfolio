@@ -36,16 +36,16 @@ $(function () {
     };
     $.get('https://api.rss2json.com/v1/api.json', data, function (response) {
         if (response.status == 'ok') {
-            console.log(response);
             var output = '';
             $.each(response.items, function (k, item) {
-                let tags = ``;
-                $.each(item.categories, function(c,items){
-                    tags += `<span class="inline-block bg-sky-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${items}</span>`
-                });
-                output += `<div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 flex flex-col">
+                if (k < 9) {
+                    let tags = ``;
+                    $.each(item.categories, function (c, items) {
+                        tags += `<span class="inline-block bg-sky-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${items}</span>`
+                    });
+                    output += `<div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 flex flex-col">
                 <a href="${item.link}">
-                    <img class="rounded-t-lg" src="${item.thumbnail}" alt="${item.title}" />
+                    <img class="rounded-t-lg" src="${item.thumbnail}" alt="${item.title} | Tushar Kanjariya" />
                 </a>
                 <div class="p-5">
                     <a href="#">
@@ -61,6 +61,7 @@ $(function () {
                     </a>
                 </div>
             </div>`
+                }
             });
             $content.html(output);
         }
