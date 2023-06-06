@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <label for="files">Select images to share:</label>
+        <input id="files" type="file" accept="image/*" multiple />
+    </div>
+    <button id="share" type="button">Share your images!</button>
+    <output id="output"></output>
+    <script>
+        const input = document.getElementById("files");
+        const output = document.getElementById("output");
+
+        document.getElementById("share").addEventListener("click", async () => {
+            const files = input.files;
+
+            if (files.length === 0) {
+                output.textContent = "No files selected.";
+                return;
+            }
+
+            // feature detecting navigator.canShare() also implies
+            // the same for the navigator.share()
+            if (!navigator.canShare) {
+                output.textContent = `Your browser doesn't support the Web Share API.`;
+                return;
+            }
+
+            if (navigator.canShare({ files })) {
+                try {
+                    await navigator.share({
+                        files,
+                        title: "Images",
+                        text: "Beautiful images",
+                    });
+                    output.textContent = "Shared!";
+                } catch (error) {
+                    output.textContent = `Error: ${error.message}`;
+                }
+            } else {
+                output.textContent = `Your system doesn't support sharing these files.`;
+            }
+        });
+    </script>
+</body>
+
+</html>
