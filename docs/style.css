@@ -607,6 +607,10 @@ html {
   margin-top: 2.5rem;
 }
 
+.ml-4{
+  margin-left: 1rem;
+}
+
 .block{
   display: block;
 }
@@ -655,6 +659,10 @@ html {
   height: 100%;
 }
 
+.h-12{
+  height: 3rem;
+}
+
 .w-6{
   width: 1.5rem;
 }
@@ -681,6 +689,10 @@ html {
 
 .w-px{
   width: 1px;
+}
+
+.w-12{
+  width: 3rem;
 }
 
 .max-w-sm{
