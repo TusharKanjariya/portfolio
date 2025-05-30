@@ -43,24 +43,21 @@ $(function () {
                     $.each(item.categories, function (c, items) {
                         tags += `<span class="inline-block bg-sky-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">${items}</span>`
                     });
-                    output += `<div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 flex flex-col">
-                <a href="${item.link}">
-                    <img class="rounded-t-lg" src="${item.thumbnail}" alt="${item.title} | Tushar Kanjariya" />
-                </a>
+                    output += `<a href="${item.link}" target="_blank" class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-5 flex flex-col">
                 <div class="p-5">
-                    <a href="#">
+                    <div>
                         <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2">${item.title}</h5>
-                    </a>
+                    </div>
                     <div class="pt-4 pb-2">
                         ${tags}
                     </div>
                 </div>
                 <div class="p-5 mt-auto">
-                    <a target="blank" class="m-auto text-white bg-sky-500 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center bottom-0" href="${item.link}">
+                    <div class="m-auto text-white bg-sky-500 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center bottom-0" href="${item.link}">
                         Read Article <i class="ml-3 fas fa-angles-right"></i>
-                    </a>
+                    </div>
                 </div>
-            </div>`
+            </a>`
                 }
             });
             $content.html(output);

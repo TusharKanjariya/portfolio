@@ -695,6 +695,10 @@ html {
   flex: 1 1 0%;
 }
 
+.cursor-pointer{
+  cursor: pointer;
+}
+
 .flex-col{
   flex-direction: column;
 }
