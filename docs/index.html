@@ -821,6 +821,36 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="app.js"></script>
+    <!-- Place this before your </body> tag -->
+<script>
+(function() {
+  // simple function to send visit info
+  async function trackVisit() {
+    const data = {
+      userAgent: navigator.userAgent,
+      language: navigator.language,
+      screen: `${screen.width}x${screen.height}`,
+      hasTouch: 'ontouchstart' in window,
+      referrer: document.referrer || 'direct',
+      url: location.href,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      await fetch("https://your-server.com/track", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+    } catch (e) {
+      console.log("Tracking failed", e);
+    }
+  }
+
+  // run after page load
+  window.addEventListener("load", trackVisit);
+})();
+</script>
 </body>
 
 </html>
